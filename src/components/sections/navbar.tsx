@@ -80,7 +80,7 @@ export default function Navbar() {
               </div>
               <div className="hidden sm:block">
                 <p className="text-white font-semibold text-sm leading-tight">
-                  Javier Mendieta
+                  Javier Mendieta 🍋
                 </p>
                 <p className="text-accent-glow/70 text-xs leading-tight">
                   Consultor Gastronómico

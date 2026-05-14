@@ -29,7 +29,7 @@ export default function MidCTA() {
             onClick={(e) => { e.preventDefault(); document.getElementById("contacto")?.scrollIntoView({ behavior: "smooth" }); }}
             className="group relative inline-flex items-center gap-2 px-8 py-4 bg-lime text-[#050505] font-bold text-lg rounded-xl hover:shadow-2xl hover:shadow-lime/20 transition-all duration-500 hover:scale-[1.04] overflow-hidden"
           >
-            <span className="relative z-10">QUIERO MI AUDITORÍA ONLINE</span>
+            <span className="relative z-10">QUIERO MI AUDITORÍA ONLINE 🍋</span>
             <div className="absolute inset-0 bg-lime-light translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
           </a>
         </motion.div>

@@ -26,14 +26,14 @@ export default function WhatsAppButton() {
             <button onClick={() => setTooltip(false)} className="absolute -top-1 -right-1 w-5 h-5 bg-gray-200 rounded-full flex items-center justify-center">
               <X className="w-3 h-3 text-gray-500" />
             </button>
-            <p className="text-gray-800 text-sm font-medium">¿Tenés alguna duda?</p>
+            <p className="text-gray-800 text-sm font-medium">¿Tenés alguna duda? 🍋</p>
             <p className="text-gray-500 text-xs">Escribime por WhatsApp</p>
             <div className="absolute bottom-0 right-6 translate-y-1/2 w-3 h-3 bg-white rotate-45" />
           </motion.div>
         )}
       </AnimatePresence>
       <motion.a
-        href="https://wa.me/5491112345678?text=Hola%20Javier%2C%20me%20interesa%20una%20consulta%20gastronómica"
+        href="https://wa.me/5491166781921?text=Hola%20Javier%2C%20me%20interesa%20una%20consulta%20gastronómica"
         target="_blank" rel="noopener noreferrer"
         initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", stiffness: 200, damping: 15 }}
         whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}

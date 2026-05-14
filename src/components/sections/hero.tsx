@@ -134,7 +134,7 @@ export default function Hero() {
         >
           <span className="inline-flex items-center gap-2 px-5 py-2 text-xs sm:text-sm font-semibold text-lime border border-lime/20 rounded-full bg-lime/[0.04] tracking-widest uppercase">
             <span className="w-1.5 h-1.5 rounded-full bg-lime animate-pulse" />
-            Consultor Gastronómico · +25 años de experiencia
+            Consultor Gastronómico · +25 años · 🍋
           </span>
         </motion.div>
 
@@ -184,7 +184,7 @@ export default function Hero() {
             onClick={scrollToContact}
             className="group relative px-8 py-4 bg-lime text-[#050505] font-bold text-lg rounded-xl hover:shadow-2xl hover:shadow-lime/20 transition-all duration-500 hover:scale-[1.04] min-w-[280px] overflow-hidden"
           >
-            <span className="relative z-10">QUIERO MEJORAR MI NEGOCIO</span>
+            <span className="relative z-10">QUIERO MEJORAR MI NEGOCIO 🍋</span>
             <div className="absolute inset-0 bg-lime-light translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
           </button>
           <a

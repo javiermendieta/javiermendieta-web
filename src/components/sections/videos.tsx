@@ -4,24 +4,24 @@ import { motion } from "framer-motion";
 
 const videos = [
   {
-    youtubeId: "2SbQpV9kNfI",
-    title: "Así Hago Rentables Restaurantes y Deliverys",
+    youtubeId: "IIA6GP--k_A",
+    title: "Así te ayudo a crecer",
     description: "Esto no es contenido educativo. Es cómo se operan restaurantes y deliveries en la vida real.",
   },
   {
-    youtubeId: "2SbQpV9kNfI",
-    title: "Cómo opero un delivery de 500 pedidos diarios",
-    description: "Lo que realmente importa cuando manejas volumen alto. Dónde se gana y dónde se pierde dinero.",
-  },
-  {
-    youtubeId: "2SbQpV9kNfI",
-    title: "Así manejo cinco restaurantes",
+    youtubeId: "8tT1gppjL5o",
+    title: "Así manejo 5 restaurantes",
     description: "Cómo controlo cinco restaurantes al mismo tiempo y qué analizo cada mañana para asegurar rentabilidad.",
   },
   {
-    youtubeId: "2SbQpV9kNfI",
-    title: "Cómo Manejar 10 Eventos al Mismo Tiempo",
+    youtubeId: "CusRSR5DT9k",
+    title: "10 eventos en un día",
     description: "Logística, líderes, timing y ejecución sin margen de error en una operación real de alto volumen.",
+  },
+  {
+    youtubeId: "Me5DLGcELoU",
+    title: "500 pedidos por día",
+    description: "Lo que realmente importa cuando manejas volumen alto. Dónde se gana y dónde se pierde dinero.",
   },
 ];
 
@@ -95,7 +95,7 @@ export default function Videos() {
             onClick={(e) => { e.preventDefault(); document.getElementById("contacto")?.scrollIntoView({ behavior: "smooth" }); }}
             className="group relative inline-flex items-center gap-2 px-8 py-4 bg-lime text-[#050505] font-bold text-lg rounded-xl hover:shadow-2xl hover:shadow-lime/20 transition-all duration-500 hover:scale-[1.04] overflow-hidden"
           >
-            <span className="relative z-10">QUIERO MEJORAR MI NEGOCIO</span>
+            <span className="relative z-10">QUIERO MEJORAR MI NEGOCIO 🍋</span>
             <div className="absolute inset-0 bg-lime-light translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
           </a>
         </motion.div>
