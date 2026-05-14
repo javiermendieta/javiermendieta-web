@@ -6,10 +6,10 @@ import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
-  { src: "/javier-1.jpeg", alt: "Javier Mendieta en operación gastronómica" },
-  { src: "/javier-2.jpeg", alt: "Javier Mendieta consultoría restaurante" },
   { src: "/javier-3.jpeg", alt: "Javier Mendieta en evento gastronómico" },
+  { src: "/javier-2.jpeg", alt: "Javier Mendieta consultoría restaurante" },
   { src: "/javier-4.png", alt: "Javier Mendieta asesorando restaurante" },
+  { src: "/javier-1.jpeg", alt: "Javier Mendieta en operación gastronómica" },
   { src: "/javier-5.png", alt: "Javier Mendieta en consultoría" },
 ];
 

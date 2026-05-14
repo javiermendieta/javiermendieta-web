@@ -14,6 +14,17 @@ const brands = [
   "Ambient House",
   "Portezuelo",
   "Pizza Glup",
+  "Olivia",
+  "Ku Las Leñas",
+  "Deep Blue",
+  "Pizza Banana",
+  "Club Leloir",
+  "Caix",
+  "Speed Unlimited",
+  "Peters",
+  "La Rural",
+  "Palacio de San Miguel",
+  "Madero Walk",
 ];
 
 const brandsDouble = [...brands, ...brands];

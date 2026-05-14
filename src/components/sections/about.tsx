@@ -3,6 +3,33 @@
 import { motion } from "framer-motion";
 import PhotoCarousel from "./photo-carousel";
 
+const aboutBrands = [
+  "Sushipop",
+  "La Causa Nikkei",
+  "Fabric Sushi",
+  "Tigre Morado",
+  "Amano",
+  "Grupo Lahusen",
+  "Ku Pinamar",
+  "Radio Set",
+  "Ambient House",
+  "Portezuelo",
+  "Pizza Glup",
+  "Olivia",
+  "Ku Las Leñas",
+  "Deep Blue",
+  "Pizza Banana",
+  "Club Leloir",
+  "Caix",
+  "Speed Unlimited",
+  "Peters",
+  "La Rural",
+  "Palacio de San Miguel",
+  "Madero Walk",
+];
+
+const aboutBrandsDouble = [...aboutBrands, ...aboutBrands];
+
 const timeline = [
   { year: "1998", title: "Inicio en la industria", desc: "Mis primeros pasos en la gastronomía profesional, aprendiendo desde la cocina hasta la gestión operativa." },
   { year: "2005", title: "Grandes marcas", desc: "Trabajo directo con líderes del sector: Sushipop, La Causa Nikkei, Fabric Sushi, Tigre Morado." },
@@ -126,6 +153,35 @@ export default function About() {
             </div>
           </motion.div>
         </div>
+
+        {/* Brand marquee reinforcement */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+          className="mt-16 sm:mt-20"
+        >
+          <p className="text-center text-white/20 text-xs tracking-[0.3em] uppercase mb-6">Algunas marcas con las que trabajé</p>
+          <div className="relative overflow-hidden rounded-xl border border-white/[0.04] bg-white/[0.01] py-5">
+            {/* Fade edges */}
+            <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-[#050505] to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-[#050505] to-transparent z-10 pointer-events-none" />
+            {/* Reverse direction row */}
+            <div className="flex items-center">
+              <div className="animate-marquee-reverse flex items-center gap-6 sm:gap-10 whitespace-nowrap">
+                {aboutBrandsDouble.map((brand, i) => (
+                  <div key={`b-${i}`} className="flex items-center gap-6 sm:gap-10 flex-shrink-0">
+                    <span className="text-lime/25 hover:text-lime/50 text-xs sm:text-sm font-semibold tracking-wider uppercase transition-colors duration-300 cursor-default select-none">
+                      {brand}
+                    </span>
+                    <span className="text-lime/10 text-[8px]">◆</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
