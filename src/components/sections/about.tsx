@@ -71,7 +71,7 @@ export default function About() {
               {/* Image container */}
               <div className="relative rounded-2xl overflow-hidden border border-accent-glow/20">
                 <Image
-                  src="/javier-portrait.png"
+                  src="/javier-photo.png"
                   alt="Javier Mendieta - Consultor Gastronómico"
                   width={600}
                   height={900}
