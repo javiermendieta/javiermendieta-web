@@ -31,10 +31,11 @@ const aboutBrands = [
 const aboutBrandsDouble = [...aboutBrands, ...aboutBrands];
 
 const timeline = [
-  { year: "1998", title: "Inicio en la industria", desc: "Mis primeros pasos en la gastronomía profesional, aprendiendo desde la cocina hasta la gestión operativa." },
-  { year: "2005", title: "Grandes marcas", desc: "Trabajo directo con líderes del sector: Sushipop, La Causa Nikkei, Fabric Sushi, Tigre Morado." },
+  { year: "2001", title: "Inicio en la industria", desc: "Mis primeros pasos en la gastronomía profesional, aprendiendo desde la cocina y barra hasta la gestión operativa." },
+  { year: "2005", title: "Gestión y liderazgo", desc: "Asumiendo roles de dirección en restaurantes, coordinando equipos y optimizando operaciones día a día." },
   { year: "2012", title: "Expansión y sistemas", desc: "Consultoría con Grupo Lahusen, Ku Pinamar, Amano, implementando sistemas operativos a escala." },
   { year: "2018", title: "Método propio", desc: "Creación de mi sistema de trabajo propio, basado en las mejores prácticas adaptadas a PyMEs." },
+  { year: "2020", title: "Grandes marcas", desc: "Trabajo directo con líderes del sector: Sushipop, La Causa Nikkei, Fabric Sushi, Tigre Morado." },
   { year: "2024", title: "Consultoría integral", desc: "Aplicación directa de mi sistema en restaurantes, con resultados medibles y comprobables." },
 ];
 
