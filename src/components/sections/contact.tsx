@@ -1,11 +1,9 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
+import { useForm, ValidationError } from "@formspree/react";
 import { Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
-import { toast } from "sonner";
-
-const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID || "";
 
 interface FormErrors { nombre?: string; email?: string; telefono?: string; mensaje?: string; }
 
@@ -21,8 +19,8 @@ function validateForm(data: { nombre: string; email: string; mensaje: string }):
 export default function Contact() {
   const [form, setForm] = useState({ nombre: "", email: "", telefono: "", mensaje: "" });
   const [errors, setErrors] = useState<FormErrors>({});
-  const [loading, setLoading] = useState(false);
-  const [sent, setSent] = useState(false);
+
+  const [state, handleSubmit] = useForm("mykoadrj");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -30,30 +28,28 @@ export default function Contact() {
     if (errors[name as keyof FormErrors]) setErrors((prev) => ({ ...prev, [name]: undefined }));
   };
 
-  const handleSubmit = async (e: FormEvent) => {
+  const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const validationErrors = validateForm({ nombre: form.nombre, email: form.email, mensaje: form.mensaje });
     if (Object.keys(validationErrors).length > 0) { setErrors(validationErrors); return; }
-    setLoading(true);
-    try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          nombre: form.nombre,
-          email: form.email,
-          telefono: form.telefono,
-          mensaje: form.mensaje,
-        }),
-      });
-      if (!res.ok) throw new Error("Error al enviar");
-      setSent(true);
-      setForm({ nombre: "", email: "", telefono: "", mensaje: "" });
-      toast.success("¡Mensaje enviado! Te respondo a la brevedad.");
-    } catch (error) {
-      toast.error(error instanceof Error ? error.message : "Error al enviar el mensaje");
-    } finally { setLoading(false); }
+    handleSubmit(e);
   };
+
+  if (state.succeeded) {
+    return (
+      <section id="contacto" className="relative py-24 sm:py-36 overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-lime/[0.03] rounded-full blur-[120px]" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="rounded-2xl p-10 sm:p-16 text-center bg-white/[0.03] border border-white/[0.06] max-w-2xl mx-auto">
+            <CheckCircle className="w-20 h-20 text-lime mx-auto mb-6" />
+            <h3 className="text-white text-3xl sm:text-4xl font-bold mb-3">¡Mensaje enviado!</h3>
+            <p className="text-white/50 text-lg mb-2">Te respondo a la brevedad. Gracias por tu confianza.</p>
+            <p className="text-lime/60 text-sm">Las consultas llegan directo a mi email.</p>
+          </motion.div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="contacto" className="relative py-24 sm:py-36 overflow-hidden">
@@ -76,53 +72,46 @@ export default function Contact() {
         <div className="grid lg:grid-cols-5 gap-10 lg:gap-16">
           {/* Form */}
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.6 }} className="lg:col-span-3">
-            {sent ? (
-              <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="rounded-2xl p-10 text-center bg-white/[0.03] border border-white/[0.06]">
-                <CheckCircle className="w-16 h-16 text-lime mx-auto mb-4" />
-                <h3 className="text-white text-2xl font-bold mb-2">¡Mensaje enviado!</h3>
-                <p className="text-white/50 text-lg mb-6">Te respondo a la brevedad. Gracias por tu confianza.</p>
-                <button onClick={() => setSent(false)} className="text-lime hover:text-lime-light transition-colors font-medium">Enviar otro mensaje</button>
-              </motion.div>
-            ) : (
-              <form onSubmit={handleSubmit} className="rounded-2xl p-6 sm:p-8 space-y-5 bg-white/[0.03] border border-white/[0.06]" noValidate>
-                {[
-                  { id: "nombre", label: "Nombre *", type: "text", placeholder: "Tu nombre completo", required: true },
-                  { id: "email", label: "Email *", type: "email", placeholder: "tu@email.com", required: true },
-                  { id: "telefono", label: "Teléfono", type: "tel", placeholder: "+54 11 1234-5678", required: false },
-                ].map((field) => (
-                  <div key={field.id}>
-                    <label htmlFor={field.id} className="block text-white/70 font-medium text-sm mb-2">{field.label}</label>
-                    <input
-                      type={field.type} id={field.id} name={field.id} value={form[field.id as keyof typeof form]}
-                      onChange={handleChange} placeholder={field.placeholder}
-                      className={`w-full px-4 py-3.5 bg-white/[0.04] border rounded-xl text-white placeholder-white/25 focus:outline-none focus:ring-2 focus:ring-lime/40 focus:border-lime/30 transition-all duration-300 ${
-                        errors[field.id as keyof FormErrors] ? "border-red-500/40" : "border-white/[0.06]"
-                      }`}
-                    />
-                    {errors[field.id as keyof FormErrors] && (
-                      <p className="mt-1 text-red-400 text-xs flex items-center gap-1"><AlertCircle className="w-3 h-3" />{errors[field.id as keyof FormErrors]}</p>
-                    )}
-                  </div>
-                ))}
-                <div>
-                  <label htmlFor="mensaje" className="block text-white/70 font-medium text-sm mb-2">Mensaje *</label>
-                  <textarea id="mensaje" name="mensaje" value={form.mensaje} onChange={handleChange} rows={4} placeholder="Contame sobre tu negocio y qué necesitás..."
-                    className={`w-full px-4 py-3.5 bg-white/[0.04] border rounded-xl text-white placeholder-white/25 focus:outline-none focus:ring-2 focus:ring-lime/40 focus:border-lime/30 transition-all duration-300 resize-none ${
-                      errors.mensaje ? "border-red-500/40" : "border-white/[0.06]"
+            <form onSubmit={onSubmit} className="rounded-2xl p-6 sm:p-8 space-y-5 bg-white/[0.03] border border-white/[0.06]" noValidate>
+              {[
+                { id: "nombre", label: "Nombre *", type: "text", placeholder: "Tu nombre completo", required: true },
+                { id: "email", label: "Email *", type: "email", placeholder: "tu@email.com", required: true },
+                { id: "telefono", label: "Teléfono", type: "tel", placeholder: "+54 11 1234-5678", required: false },
+              ].map((field) => (
+                <div key={field.id}>
+                  <label htmlFor={field.id} className="block text-white/70 font-medium text-sm mb-2">{field.label}</label>
+                  <input
+                    type={field.type} id={field.id} name={field.id} value={form[field.id as keyof typeof form]}
+                    onChange={handleChange} placeholder={field.placeholder}
+                    className={`w-full px-4 py-3.5 bg-white/[0.04] border rounded-xl text-white placeholder-white/25 focus:outline-none focus:ring-2 focus:ring-lime/40 focus:border-lime/30 transition-all duration-300 ${
+                      errors[field.id as keyof FormErrors] ? "border-red-500/40" : "border-white/[0.06]"
                     }`}
                   />
-                  {errors.mensaje && <p className="mt-1 text-red-400 text-xs flex items-center gap-1"><AlertCircle className="w-3 h-3" />{errors.mensaje}</p>}
+                  {errors[field.id as keyof FormErrors] && (
+                    <p className="mt-1 text-red-400 text-xs flex items-center gap-1"><AlertCircle className="w-3 h-3" />{errors[field.id as keyof FormErrors]}</p>
+                  )}
+                  <ValidationError prefix={field.id} field={field.id} errors={state.errors} className="mt-1 text-red-400 text-xs flex items-center gap-1" />
                 </div>
-                <button type="submit" disabled={loading}
-                  className="group relative w-full py-4 bg-lime text-[#050505] font-bold text-lg rounded-xl hover:shadow-2xl hover:shadow-lime/20 transition-all duration-500 hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2 min-h-[52px] overflow-hidden"
-                >
-                  <span className="relative z-10 flex items-center gap-2">
-                    {loading ? <><Loader2 className="w-5 h-5 animate-spin" />Enviando...</> : <><Send className="w-5 h-5" />Enviar mensaje 🍋</>}
-                  </span>
-                  <div className="absolute inset-0 bg-lime-light translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-                </button>
-              </form>
-            )}
+              ))}
+              <div>
+                <label htmlFor="mensaje" className="block text-white/70 font-medium text-sm mb-2">Mensaje *</label>
+                <textarea id="mensaje" name="mensaje" value={form.mensaje} onChange={handleChange} rows={4} placeholder="Contame sobre tu negocio y qué necesitás..."
+                  className={`w-full px-4 py-3.5 bg-white/[0.04] border rounded-xl text-white placeholder-white/25 focus:outline-none focus:ring-2 focus:ring-lime/40 focus:border-lime/30 transition-all duration-300 resize-none ${
+                    errors.mensaje ? "border-red-500/40" : "border-white/[0.06]"
+                  }`}
+                />
+                {errors.mensaje && <p className="mt-1 text-red-400 text-xs flex items-center gap-1"><AlertCircle className="w-3 h-3" />{errors.mensaje}</p>}
+                <ValidationError prefix="Mensaje" field="mensaje" errors={state.errors} className="mt-1 text-red-400 text-xs flex items-center gap-1" />
+              </div>
+              <button type="submit" disabled={state.submitting}
+                className="group relative w-full py-4 bg-lime text-[#050505] font-bold text-lg rounded-xl hover:shadow-2xl hover:shadow-lime/20 transition-all duration-500 hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2 min-h-[52px] overflow-hidden"
+              >
+                <span className="relative z-10 flex items-center gap-2">
+                  {state.submitting ? <><Loader2 className="w-5 h-5 animate-spin" />Enviando...</> : <><Send className="w-5 h-5" />Enviar mensaje 🍋</>}
+                </span>
+                <div className="absolute inset-0 bg-lime-light translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+              </button>
+            </form>
           </motion.div>
 
           {/* Sidebar */}
