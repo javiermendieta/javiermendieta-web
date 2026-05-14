@@ -7,7 +7,7 @@ const timeline = [
   {
     year: "1998",
     title: "Inicio en la industria",
-    desc: "Primeros pasos en la gastronomía profesional, aprendiendo desde la cocina hasta la gestión operativa.",
+    desc: "Mis primeros pasos en la gastronomía profesional, aprendiendo desde la cocina hasta la gestión operativa.",
   },
   {
     year: "2005",
@@ -22,12 +22,12 @@ const timeline = [
   {
     year: "2018",
     title: "Método propio",
-    desc: "Creación de un sistema de trabajo propio, basado en las mejores prácticas adaptadas a PyMEs.",
+    desc: "Creación de mi sistema de trabajo propio, basado en las mejores prácticas adaptadas a PyMEs.",
   },
   {
     year: "2024",
     title: "Consultoría integral",
-    desc: "Aplicación directa del sistema en restaurantes, con resultados medibles y comprobables.",
+    desc: "Aplicación directa de mi sistema en restaurantes, con resultados medibles y comprobables.",
   },
 ];
 
@@ -35,8 +35,8 @@ export default function About() {
   return (
     <section id="sobre-mi" className="relative py-20 sm:py-32 overflow-hidden">
       {/* Background elements */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold/3 rounded-full blur-[120px]" />
-      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-emerald-accent/3 rounded-full blur-[100px]" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent-glow/3 rounded-full blur-[120px]" />
+      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-accent-green/3 rounded-full blur-[100px]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
@@ -47,11 +47,11 @@ export default function About() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16 sm:mb-20"
         >
-          <span className="text-gold font-semibold text-sm tracking-wider uppercase">
+          <span className="text-accent-glow font-semibold text-sm tracking-wider uppercase">
             Sobre Mí
           </span>
           <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-bold text-white">
-            Javier <span className="text-gold">Mendieta</span>
+            Javier <span className="text-accent-glow">Mendieta</span>
           </h2>
         </motion.div>
 
@@ -66,10 +66,10 @@ export default function About() {
           >
             <div className="relative max-w-md mx-auto lg:mx-0">
               {/* Glow behind image */}
-              <div className="absolute -inset-4 bg-gradient-to-br from-gold/20 to-emerald-accent/20 rounded-2xl blur-2xl" />
+              <div className="absolute -inset-4 bg-gradient-to-br from-accent-glow/20 to-accent-green/20 rounded-2xl blur-2xl" />
 
               {/* Image container */}
-              <div className="relative rounded-2xl overflow-hidden border border-gold/20">
+              <div className="relative rounded-2xl overflow-hidden border border-accent-glow/20">
                 <Image
                   src="/javier-portrait.png"
                   alt="Javier Mendieta - Consultor Gastronómico"
@@ -90,7 +90,7 @@ export default function About() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="absolute -bottom-4 -right-4 sm:bottom-6 sm:right-6 glass-strong rounded-xl px-4 py-3 sm:px-6 sm:py-4"
               >
-                <p className="text-gold font-bold text-2xl sm:text-3xl">+25</p>
+                <p className="text-accent-glow font-bold text-2xl sm:text-3xl">+25</p>
                 <p className="text-white/70 text-xs sm:text-sm">Años de experiencia</p>
               </motion.div>
             </div>
@@ -108,7 +108,7 @@ export default function About() {
               <p>
                 Con más de 25 años de experiencia, trabajé desde adentro con los
                 líderes de la industria gastronómica:{" "}
-                <span className="text-gold font-medium">
+                <span className="text-accent-glow font-medium">
                   Sushipop, La Causa Nikkei, Fabric Sushi, Tigre Morado, Amano,
                   Grupo Lahusen, Ku Pinamar, Radio Set, Ambient House,
                   Portezuelo, Pizza Glup
@@ -147,7 +147,7 @@ export default function About() {
                     .getElementById("contacto")
                     ?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gold to-gold-dark text-[#0a0a0a] font-bold rounded-xl hover:shadow-lg hover:shadow-gold/25 transition-all duration-300 hover:scale-105"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-accent-glow to-accent-glow-dark text-[#0a0a0a] font-bold rounded-xl hover:shadow-lg hover:shadow-accent-glow/25 transition-all duration-300 hover:scale-105"
               >
                 Conocé cómo trabajo
               </a>
@@ -155,7 +155,7 @@ export default function About() {
 
             {/* Timeline */}
             <div className="mt-12 relative">
-              <div className="absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-gold/50 via-gold/20 to-transparent" />
+              <div className="absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-accent-glow/50 via-accent-glow/20 to-transparent" />
               <div className="space-y-6">
                 {timeline.map((item, i) => (
                   <motion.div
@@ -166,11 +166,11 @@ export default function About() {
                     transition={{ duration: 0.5, delay: i * 0.1 }}
                     className="relative pl-12"
                   >
-                    <div className="absolute left-0 top-1.5 w-8 h-8 rounded-full bg-[#0a0a0a] border-2 border-gold/50 flex items-center justify-center">
-                      <div className="w-2 h-2 rounded-full bg-gold" />
+                    <div className="absolute left-0 top-1.5 w-8 h-8 rounded-full bg-[#0a0a0a] border-2 border-accent-glow/50 flex items-center justify-center">
+                      <div className="w-2 h-2 rounded-full bg-accent-glow" />
                     </div>
                     <div>
-                      <span className="text-gold font-bold text-sm">
+                      <span className="text-accent-glow font-bold text-sm">
                         {item.year}
                       </span>
                       <h4 className="text-white font-semibold text-base">

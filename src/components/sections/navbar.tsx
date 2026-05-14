@@ -56,7 +56,7 @@ export default function Navbar() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-[#0a0a0a]/90 backdrop-blur-xl border-b border-gold/10 shadow-lg shadow-black/20"
+            ? "bg-[#0a0a0a]/90 backdrop-blur-xl border-b border-accent-glow/10 shadow-lg shadow-black/20"
             : "bg-transparent"
         }`}
       >
@@ -73,7 +73,7 @@ export default function Navbar() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-gold to-gold-dark flex items-center justify-center">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-accent-glow to-accent-glow-dark flex items-center justify-center">
                 <span className="text-[#0a0a0a] font-bold text-lg sm:text-xl tracking-tight">
                   JM
                 </span>
@@ -82,7 +82,7 @@ export default function Navbar() {
                 <p className="text-white font-semibold text-sm leading-tight">
                   Javier Mendieta
                 </p>
-                <p className="text-gold/70 text-xs leading-tight">
+                <p className="text-accent-glow/70 text-xs leading-tight">
                   Consultor Gastronómico
                 </p>
               </div>
@@ -100,7 +100,7 @@ export default function Navbar() {
                   }}
                   className={`relative px-3 xl:px-4 py-2 text-sm font-medium transition-colors rounded-lg ${
                     activeSection === link.href.replace("#", "")
-                      ? "text-gold"
+                      ? "text-accent-glow"
                       : "text-white/70 hover:text-white"
                   }`}
                 >
@@ -108,7 +108,7 @@ export default function Navbar() {
                   {activeSection === link.href.replace("#", "") && (
                     <motion.div
                       layoutId="activeNav"
-                      className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-gold rounded-full"
+                      className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-accent-glow rounded-full"
                       transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     />
                   )}
@@ -120,7 +120,7 @@ export default function Navbar() {
                   e.preventDefault();
                   handleClick("#contacto");
                 }}
-                className="ml-3 px-5 py-2.5 bg-gradient-to-r from-gold to-gold-dark text-[#0a0a0a] font-semibold text-sm rounded-lg hover:shadow-lg hover:shadow-gold/25 transition-all duration-300 hover:scale-105"
+                className="ml-3 px-5 py-2.5 bg-gradient-to-r from-accent-glow to-accent-glow-dark text-[#0a0a0a] font-semibold text-sm rounded-lg hover:shadow-lg hover:shadow-accent-glow/25 transition-all duration-300 hover:scale-105"
               >
                 Agendá una consulta
               </a>
@@ -162,7 +162,7 @@ export default function Navbar() {
                   }}
                   className={`text-2xl font-semibold transition-colors ${
                     activeSection === link.href.replace("#", "")
-                      ? "text-gold"
+                      ? "text-accent-glow"
                       : "text-white/70 hover:text-white"
                   }`}
                 >
@@ -178,7 +178,7 @@ export default function Navbar() {
                   e.preventDefault();
                   handleClick("#contacto");
                 }}
-                className="mt-4 px-8 py-4 bg-gradient-to-r from-gold to-gold-dark text-[#0a0a0a] font-bold text-lg rounded-xl"
+                className="mt-4 px-8 py-4 bg-gradient-to-r from-accent-glow to-accent-glow-dark text-[#0a0a0a] font-bold text-lg rounded-xl"
               >
                 Agendá una consulta
               </motion.a>

@@ -73,7 +73,7 @@ export default function Testimonials() {
       className="relative py-20 sm:py-32 overflow-hidden"
     >
       {/* Background */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gold/3 rounded-full blur-[120px]" />
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-accent-glow/3 rounded-full blur-[120px]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -84,12 +84,12 @@ export default function Testimonials() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16 sm:mb-20"
         >
-          <span className="text-gold font-semibold text-sm tracking-wider uppercase">
+          <span className="text-accent-glow font-semibold text-sm tracking-wider uppercase">
             Testimonios
           </span>
           <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-bold text-white">
             Lo que dicen{" "}
-            <span className="text-gold">mis clientes</span>
+            <span className="text-accent-glow">mis clientes</span>
           </h2>
         </motion.div>
 
@@ -107,7 +107,7 @@ export default function Testimonials() {
                 transition={{ duration: 0.4, ease: "easeInOut" }}
                 className="glass-strong rounded-2xl p-8 sm:p-10"
               >
-                <Quote className="w-10 h-10 text-gold/30 mb-4" />
+                <Quote className="w-10 h-10 text-accent-glow/30 mb-4" />
 
                 <p className="text-white/80 text-lg sm:text-xl leading-relaxed mb-8">
                   &ldquo;{testimonials[current].text}&rdquo;
@@ -121,14 +121,14 @@ export default function Testimonials() {
                       }).map((_, i) => (
                         <Star
                           key={i}
-                          className="w-4 h-4 fill-gold text-gold"
+                          className="w-4 h-4 fill-accent-glow text-accent-glow"
                         />
                       ))}
                     </div>
                     <p className="text-white font-semibold">
                       {testimonials[current].name}
                     </p>
-                    <p className="text-gold/70 text-sm">
+                    <p className="text-accent-glow/70 text-sm">
                       {testimonials[current].restaurant}
                     </p>
                   </div>
@@ -141,7 +141,7 @@ export default function Testimonials() {
           <div className="flex items-center justify-center gap-4 mt-8">
             <button
               onClick={prev}
-              className="w-11 h-11 rounded-full glass flex items-center justify-center text-white/70 hover:text-gold hover:border-gold/30 transition-all duration-300"
+              className="w-11 h-11 rounded-full glass flex items-center justify-center text-white/70 hover:text-accent-glow hover:border-accent-glow/30 transition-all duration-300"
               aria-label="Testimonio anterior"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -157,7 +157,7 @@ export default function Testimonials() {
                   }}
                   className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
                     i === current
-                      ? "bg-gold w-8"
+                      ? "bg-accent-glow w-8"
                       : "bg-white/20 hover:bg-white/40"
                   }`}
                   aria-label={`Ir al testimonio ${i + 1}`}
@@ -167,7 +167,7 @@ export default function Testimonials() {
 
             <button
               onClick={next}
-              className="w-11 h-11 rounded-full glass flex items-center justify-center text-white/70 hover:text-gold hover:border-gold/30 transition-all duration-300"
+              className="w-11 h-11 rounded-full glass flex items-center justify-center text-white/70 hover:text-accent-glow hover:border-accent-glow/30 transition-all duration-300"
               aria-label="Testimonio siguiente"
             >
               <ChevronRight className="w-5 h-5" />

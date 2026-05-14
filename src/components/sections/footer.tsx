@@ -51,20 +51,20 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative border-t border-gold/10 bg-[#050505]">
+    <footer className="relative border-t border-accent-glow/10 bg-[#050505]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-gold to-gold-dark flex items-center justify-center">
+              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-accent-glow to-accent-glow-dark flex items-center justify-center">
                 <span className="text-[#0a0a0a] font-bold text-lg">JM</span>
               </div>
               <div>
                 <p className="text-white font-semibold text-sm">
                   Javier Mendieta
                 </p>
-                <p className="text-gold/70 text-xs">Consultor Gastronómico</p>
+                <p className="text-accent-glow/70 text-xs">Consultor Gastronómico</p>
               </div>
             </div>
             <p className="text-white/40 text-sm leading-relaxed max-w-xs">
@@ -85,7 +85,7 @@ export default function Footer() {
                     e.preventDefault();
                     handleClick(link.href);
                   }}
-                  className="text-white/40 text-sm hover:text-gold transition-colors duration-200"
+                  className="text-white/40 text-sm hover:text-accent-glow transition-colors duration-200"
                 >
                   {link.label}
                 </a>
@@ -104,7 +104,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={link.label}
-                  className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:text-gold hover:border-gold/30 hover:bg-gold/10 transition-all duration-300"
+                  className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:text-accent-glow hover:border-accent-glow/30 hover:bg-accent-glow/10 transition-all duration-300"
                 >
                   {link.icon}
                 </a>

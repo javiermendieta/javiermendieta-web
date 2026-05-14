@@ -47,7 +47,7 @@ function Particles() {
       {Array.from({ length: 30 }).map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-1 h-1 rounded-full bg-gold/30"
+          className="absolute w-1 h-1 rounded-full bg-accent-glow/30"
           initial={{
             x: `${Math.random() * 100}%`,
             y: `${Math.random() * 100}%`,
@@ -85,13 +85,13 @@ export default function Hero() {
       {/* Animated gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#0f0f0f] to-[#0a0a0a]" />
 
-      {/* Gold radial glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gold/5 rounded-full blur-[120px] animate-gradient" />
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-emerald-accent/5 rounded-full blur-[100px]" />
+      {/* Accent glow */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-accent-glow/5 rounded-full blur-[120px] animate-gradient" />
+      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-accent-green/5 rounded-full blur-[100px]" />
 
       {/* Hero background image overlay */}
       <div
-        className="absolute inset-0 opacity-15"
+        className="absolute inset-0 opacity-20"
         style={{
           backgroundImage: "url('/hero-bg.png')",
           backgroundSize: "cover",
@@ -107,7 +107,7 @@ export default function Hero() {
         className="absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(212,175,55,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(212,175,55,0.3) 1px, transparent 1px)",
+            "linear-gradient(rgba(184,212,55,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(184,212,55,0.3) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
         }}
       />
@@ -120,7 +120,7 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="mb-6"
         >
-          <span className="inline-block px-4 py-1.5 text-xs sm:text-sm font-semibold text-gold border border-gold/30 rounded-full bg-gold/5 tracking-wider uppercase">
+          <span className="inline-block px-4 py-1.5 text-xs sm:text-sm font-semibold text-accent-glow border border-accent-glow/30 rounded-full bg-accent-glow/5 tracking-wider uppercase">
             Consultor Gastronómico · +25 años de experiencia
           </span>
         </motion.div>
@@ -141,8 +141,8 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
           className="text-lg sm:text-xl md:text-2xl text-white/60 max-w-3xl mx-auto mb-10 sm:mb-12 leading-relaxed"
         >
-          Auditamos, optimizamos y transformamos restaurantes para que operen
-          con la eficiencia de las grandes marcas. Resultados reales, medibles y
+          Audito, optimizo y transformo restaurantes para que operen con la
+          eficiencia de las grandes marcas. Resultados reales, medibles y
           rentables.
         </motion.p>
 
@@ -154,7 +154,7 @@ export default function Hero() {
         >
           <button
             onClick={scrollToContact}
-            className="group relative px-8 py-4 bg-gradient-to-r from-gold to-gold-dark text-[#0a0a0a] font-bold text-lg rounded-xl hover:shadow-2xl hover:shadow-gold/30 transition-all duration-300 hover:scale-105 min-w-[220px]"
+            className="group relative px-8 py-4 bg-gradient-to-r from-accent-glow to-accent-glow-dark text-[#0a0a0a] font-bold text-lg rounded-xl hover:shadow-2xl hover:shadow-accent-glow/30 transition-all duration-300 hover:scale-105 min-w-[220px]"
           >
             Agendá una consulta
             <div className="absolute inset-0 rounded-xl bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -167,7 +167,7 @@ export default function Hero() {
                 .getElementById("servicios")
                 ?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="px-8 py-4 border border-white/20 text-white font-semibold text-lg rounded-xl hover:border-gold/50 hover:text-gold transition-all duration-300 min-w-[220px]"
+            className="px-8 py-4 border border-white/20 text-white font-semibold text-lg rounded-xl hover:border-accent-glow/50 hover:text-accent-glow transition-all duration-300 min-w-[220px]"
           >
             Ver servicios
           </a>
@@ -185,7 +185,7 @@ export default function Hero() {
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         >
-          <ChevronDown className="w-6 h-6 text-gold/50" />
+          <ChevronDown className="w-6 h-6 text-accent-glow/50" />
         </motion.div>
       </motion.div>
     </section>
