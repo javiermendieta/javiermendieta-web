@@ -23,7 +23,10 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Javier Mendieta" }],
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+    ],
   },
   openGraph: {
     title: "Javier Mendieta | Consultor Gastronómico",

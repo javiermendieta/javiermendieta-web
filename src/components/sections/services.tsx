@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import {
-  ClipboardCheck, BarChart3, Truck, Star, Users, Wrench, UserPlus,
+  ClipboardCheck, BarChart3, Truck, Star, Users, ClipboardList, UserPlus,
 } from "lucide-react";
 import { ReactNode } from "react";
 
@@ -13,6 +13,11 @@ const services: { icon: ReactNode; title: string; desc: string }[] = [
     desc: "Evalúo punto por punto cada sector del restaurante. Detecto dónde se pierde dinero y armo un plan de acción concreto.",
   },
   {
+    icon: <UserPlus className="w-6 h-6" />,
+    title: "Adquisición de Clientes",
+    desc: "Instalo un sistema para captar y fidelizar clientes. Marketing digital enfocado en gastronomía.",
+  },
+  {
     icon: <BarChart3 className="w-6 h-6" />,
     title: "Consultoría Gastronómica",
     desc: "Diseño estrategia y optimización integral. Definimos qué corregir y armo un plan a medida con métricas claras.",
@@ -20,7 +25,7 @@ const services: { icon: ReactNode; title: string; desc: string }[] = [
   {
     icon: <Truck className="w-6 h-6" />,
     title: "Gestión de Delivery",
-    desc: "Optimizo métricas en Pedidos Ya, Rappi y otras plataformas para que tu canal digital sea rentable.",
+    desc: "Optimizo resultados en Rappi, Pedidos Ya y otras plataformas para que tu canal digital sea rentable.",
   },
   {
     icon: <Star className="w-6 h-6" />,
@@ -33,14 +38,9 @@ const services: { icon: ReactNode; title: string; desc: string }[] = [
     desc: "Entreno equipos para que trabajen con estándares profesionales. Sistema claro, no a ojo.",
   },
   {
-    icon: <Wrench className="w-6 h-6" />,
-    title: "Mantenimiento Preventivo",
-    desc: "Planifico mantenimiento para evitar paradas. Creo schedules y controlo proveedores.",
-  },
-  {
-    icon: <UserPlus className="w-6 h-6" />,
-    title: "Adquisición de Clientes",
-    desc: "Instalo un sistema para captar y fidelizar clientes. Marketing digital enfocado en gastronomía.",
+    icon: <ClipboardList className="w-6 h-6" />,
+    title: "Seguimiento Diario",
+    desc: "Planifico la eficiencia de mercadería, checklist, puntos de control y mantenimiento para asegurar la eficiencia.",
   },
 ];
 
