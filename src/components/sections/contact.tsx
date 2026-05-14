@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 
+const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID || "";
+
 interface FormErrors { nombre?: string; email?: string; telefono?: string; mensaje?: string; }
 
 function validateForm(data: { nombre: string; email: string; mensaje: string }): FormErrors {
@@ -34,9 +36,17 @@ export default function Contact() {
     if (Object.keys(validationErrors).length > 0) { setErrors(validationErrors); return; }
     setLoading(true);
     try {
-      const res = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(form) });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Error al enviar");
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          nombre: form.nombre,
+          email: form.email,
+          telefono: form.telefono,
+          mensaje: form.mensaje,
+        }),
+      });
+      if (!res.ok) throw new Error("Error al enviar");
       setSent(true);
       setForm({ nombre: "", email: "", telefono: "", mensaje: "" });
       toast.success("¡Mensaje enviado! Te respondo a la brevedad.");
