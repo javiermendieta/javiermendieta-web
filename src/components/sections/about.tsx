@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+import PhotoCarousel from "./photo-carousel";
 
 const timeline = [
   { year: "1998", title: "Inicio en la industria", desc: "Mis primeros pasos en la gastronomía profesional, aprendiendo desde la cocina hasta la gestión operativa." },
@@ -35,8 +35,8 @@ export default function About() {
           </h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Portrait */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+          {/* Photo Carousel */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -48,16 +48,8 @@ export default function About() {
               {/* Glow */}
               <div className="absolute -inset-6 bg-gradient-to-br from-lime/10 to-emerald/10 rounded-3xl blur-3xl" />
 
-              <div className="relative rounded-2xl overflow-hidden border border-lime/15">
-                <Image
-                  src="/javier-photo.png"
-                  alt="Javier Mendieta - Consultor Gastronómico"
-                  width={600}
-                  height={900}
-                  className="w-full h-auto object-cover"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/20 to-transparent" />
+              <div className="relative">
+                <PhotoCarousel />
               </div>
 
               {/* Stats card */}
@@ -66,7 +58,7 @@ export default function About() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="absolute -bottom-3 -right-3 sm:bottom-6 sm:right-6 glass-strong rounded-xl px-5 py-4"
+                className="absolute -bottom-3 -right-3 sm:bottom-6 sm:right-6 glass-strong rounded-xl px-5 py-4 z-20"
               >
                 <p className="text-lime font-bold text-3xl">+25</p>
                 <p className="text-white/60 text-sm">Años de experiencia</p>
