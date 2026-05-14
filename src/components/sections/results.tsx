@@ -7,13 +7,15 @@ const stats = [
   { value: 5, suffix: "", label: "Marcas en Grupo Sushipop", prefix: "", sublabel: "+500 pedidos diarios" },
   { value: 10, suffix: "", label: "Eventos simultáneos en Grupo Lahusen", prefix: "+", sublabel: "Operación constante" },
   { value: 5, suffix: "", label: "Bares en Ambient House", prefix: "", sublabel: "Gestión coordinada" },
-  { value: 50, suffix: "+", label: "Restaurantes asesorados", prefix: "", sublabel: "En toda Argentina" },
+  { value: 4.8, suffix: " | 4.9", label: "Calificaciones de clientes", prefix: "", sublabel: "Google Reviews" },
 ];
 
 function CountUp({ target, suffix, prefix }: { target: number; suffix: string; prefix: string }) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
+
+  const isDecimal = target % 1 !== 0;
 
   useEffect(() => {
     if (!isInView) return;
@@ -23,13 +25,13 @@ function CountUp({ target, suffix, prefix }: { target: number; suffix: string; p
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
-      setCount(Math.floor(eased * target));
+      setCount(isDecimal ? parseFloat((eased * target).toFixed(1)) : Math.floor(eased * target));
       if (progress < 1) requestAnimationFrame(animate);
     };
     requestAnimationFrame(animate);
-  }, [isInView, target]);
+  }, [isInView, target, isDecimal]);
 
-  return <span ref={ref} className="tabular-nums">{prefix}{count}{suffix}</span>;
+  return <span ref={ref} className="tabular-nums">{prefix}{isDecimal ? count.toFixed(1) : count}{suffix}</span>;
 }
 
 export default function Results() {

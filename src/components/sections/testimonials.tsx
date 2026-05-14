@@ -5,10 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const testimonials = [
-  { text: "Trabajar con Javier fue un antes y un después. En tres meses mejoramos un 35% la eficiencia operativa y redujimos costos sin sacrificar calidad. Su sistema es claro, práctico y sobre todo, funciona.", name: "Martín Rodríguez", restaurant: "Restaurante Siete Fuegos", rating: 5 },
-  { text: "Las auditorías operativas nos abrieron los ojos. Descubrimos filtraciones que no veíamos y con el plan de acción de Javier las corregimos rápido. Hoy tenemos mucho más control del negocio.", name: "Carolina Vega", restaurant: "La Terraza Cocina & Vinos", rating: 5 },
-  { text: "El delivery era un dolor de cabeza hasta que Javier lo ordenó. Mejoramos tiempos, visibilidad en las apps y lo que es más importante: la rentabilidad del canal. Totalmente recomendable.", name: "Esteban López", restaurant: "Patio Norte Parrilla", rating: 5 },
-  { text: "La capacitación de personal que implementó Javier transformó el equipo. Ahora trabajan con estándares claros y el cliente lo nota. Nivel de servicio premium sin duplicar costos.", name: "Valentina Martínez", restaurant: "Alma Cocina Regional", rating: 5 },
+  { text: "A partir del segundo mes, el CMV nos dio perfecto durante todo el año. Javier implementó un sistema que nos permitió tener control real sobre los costos y los resultados se notaron de inmediato.", name: "Joseph", rating: 5 },
+  { text: "Las auditorías operativas nos abrieron los ojos. Descubrimos filtraciones que no veíamos y con el plan de acción de Javier las corregimos rápido. Hoy tenemos mucho más control del negocio.", name: "Carolina Vega", rating: 5 },
+  { text: "El delivery era un dolor de cabeza hasta que Javier lo ordenó. Mejoramos tiempos, visibilidad en las apps y lo que es más importante: la rentabilidad del canal. Totalmente recomendable.", name: "Esteban López", rating: 5 },
+  { text: "La capacitación de personal que implementó Javier transformó el equipo. Ahora trabajan con estándares claros y el cliente lo nota. Nivel de servicio premium sin duplicar costos.", name: "Valentina Martínez", rating: 5 },
 ];
 
 export default function Testimonials() {
@@ -70,7 +70,6 @@ export default function Testimonials() {
                     ))}
                   </div>
                   <p className="text-white font-semibold">{testimonials[current].name}</p>
-                  <p className="text-lime/50 text-sm">{testimonials[current].restaurant}</p>
                 </div>
               </motion.div>
             </AnimatePresence>
