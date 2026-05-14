@@ -20,32 +20,32 @@ const services: {
 }[] = [
   {
     icon: <ClipboardCheck className="w-7 h-7" />,
-    title: "Auditorías Operativas",
-    desc: "Evalúo punto por punto cada sector del restaurante: cocina, salón, barra, administración y delivery. Detecto filtraciones, ineficiencias y oportunidades de mejora con un informe detallado y un plan de acción concreto.",
+    title: "Auditoría 360° del negocio",
+    desc: "Evalúo punto por punto cada sector del restaurante: cocina, salón, barra, administración y delivery. Detecto dónde se está perdiendo dinero y armo un plan de acción concreto para corregirlo.",
     accent: "from-accent-glow/20 to-accent-glow/5",
   },
   {
     icon: <BarChart3 className="w-7 h-7" />,
     title: "Consultoría Gastronómica",
-    desc: "Diseño estrategia y optimización integral de operaciones. Armo un plan a medida para tu negocio, desde la estructura de costos hasta la experiencia del cliente, con seguimiento continuo y métricas claras.",
+    desc: "Diseño estrategia y optimización integral de operaciones. Definimos qué hay que corregir y armo un plan a medida para tu negocio, con seguimiento continuo y métricas claras.",
     accent: "from-accent-green/20 to-accent-green/5",
   },
   {
     icon: <Truck className="w-7 h-7" />,
     title: "Gestión de Delivery",
-    desc: "Monitoreo y mejoró métricas en Pedidos Ya, Rappi y otras plataformas. Optimizo tiempos, visibilidad, reseñas y rentabilidad de tu canal digital para que deje de ser un dolor de cabeza.",
+    desc: "Monitoreo y mejoro métricas en Pedidos Ya, Rappi y otras plataformas. Optimizo tiempos, visibilidad, reseñas y rentabilidad de tu canal digital para que deje de ser un dolor de cabeza.",
     accent: "from-accent-glow/20 to-accent-glow/5",
   },
   {
     icon: <Star className="w-7 h-7" />,
     title: "Monitoreo de Reseñas",
-    desc: "Sigo de cerca tus reseñas en Google y manejo tu reputation management. Te ayudo a construir una sólida presencia digital, responder adecuadamente y convertir comentarios en oportunidades de mejora.",
+    desc: "Sigo de cerca tus reseñas en Google y manejo tu reputation management. Te ayudo a construir una sólida presencia digital y convertir comentarios en oportunidades de mejora.",
     accent: "from-accent-green/20 to-accent-green/5",
   },
   {
     icon: <Users className="w-7 h-7" />,
     title: "Capacitación de Personal",
-    desc: "Entreno y formo equipos para que trabajen con estándares profesionales. Desde la inducción hasta la capacitación continua, genero equipos comprometidos y eficientes.",
+    desc: "Entreno y formo equipos para que trabajen con estándares profesionales. Estructuro cómo tiene que trabajar el equipo para que funcione con sistema, no a ojo.",
     accent: "from-accent-glow/20 to-accent-glow/5",
   },
   {
@@ -57,7 +57,7 @@ const services: {
   {
     icon: <UserPlus className="w-7 h-7" />,
     title: "Sistema de Adquisición de Clientes",
-    desc: "Implemento estrategias para captar nuevos clientes y fidelizar los existentes. Trabajo sobre posicionamiento, promociones, alianzas estratégicas y marketing digital enfocado en gastronomía para que tu restaurante siempre tenga demanda.",
+    desc: "Instalo un sistema para captar nuevos clientes y fidelizar los existentes. Trabajo sobre posicionamiento, promociones, alianzas estratégicas y marketing digital enfocado en gastronomía para que tu restaurante siempre tenga demanda.",
     accent: "from-accent-glow/20 to-accent-glow/5",
   },
 ];
@@ -91,16 +91,17 @@ export default function Services() {
           className="text-center mb-16 sm:mb-20"
         >
           <span className="text-accent-glow font-semibold text-sm tracking-wider uppercase">
-            Servicios
+            Qué hago
           </span>
           <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-bold text-white">
-            Lo que hago{" "}
-            <span className="text-accent-glow">por tu negocio</span>
+            Esto es lo que hago{" "}
+            <span className="text-accent-glow">con mis clientes</span>
           </h2>
           <p className="mt-4 text-white/50 text-lg max-w-2xl mx-auto">
-            Cada servicio está diseñado para resolver problemas reales de la
-            operación gastronómica, con mi método propio y resultados
-            comprobados.
+            Instalo un sistema de control operativo y comercial. Acompaño para
+            que funcione en el día a día. Si la rentabilidad se mueve, el
+            problema se detecta a tiempo,{" "}
+            <span className="text-white font-semibold">SIEMPRE</span>.
           </p>
         </motion.div>
 
@@ -141,6 +142,28 @@ export default function Services() {
             </motion.div>
           ))}
         </div>
+
+        {/* CTA after services */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="text-center mt-12"
+        >
+          <a
+            href="#contacto"
+            onClick={(e) => {
+              e.preventDefault();
+              document
+                .getElementById("contacto")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-accent-glow to-accent-glow-dark text-[#0a0a0a] font-bold text-lg rounded-xl hover:shadow-2xl hover:shadow-accent-glow/30 transition-all duration-300 hover:scale-105"
+          >
+            QUIERO MEJORAR MI NEGOCIO
+          </a>
+        </motion.div>
       </div>
     </section>
   );

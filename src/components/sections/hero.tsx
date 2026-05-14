@@ -6,8 +6,8 @@ import { ChevronDown } from "lucide-react";
 
 const phrases = [
   "Transformá tu negocio gastronómico",
-  "Optimizá cada aspecto de tu restaurante",
-  "Llevá tu operación al siguiente nivel",
+  "Hacé que tu restaurante gane más dinero",
+  "Operá con la eficiencia de las grandes marcas",
 ];
 
 function useTypingEffect(phrases: string[], typingSpeed = 60, deletingSpeed = 30, pauseTime = 2000) {
@@ -139,11 +139,23 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-          className="text-lg sm:text-xl md:text-2xl text-white/60 max-w-3xl mx-auto mb-10 sm:mb-12 leading-relaxed"
+          className="text-lg sm:text-xl md:text-2xl text-white/60 max-w-3xl mx-auto mb-4 leading-relaxed"
         >
-          Audito, optimizo y transformo restaurantes para que operen con la
-          eficiencia de las grandes marcas. Resultados reales, medibles y
-          rentables.
+          Hago que tu restaurante o delivery{" "}
+          <span className="text-accent-glow font-bold">gane más DINERO</span>{" "}
+          usando los métodos de las grandes marcas.
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+          className="text-base sm:text-lg text-white/50 max-w-2xl mx-auto mb-10 sm:mb-12"
+        >
+          En <span className="text-white font-semibold">30 días</span> ordeno
+          los números de tu negocio. En{" "}
+          <span className="text-white font-semibold">90 días</span> tu
+          restaurante funciona con la máxima eficiencia.
         </motion.p>
 
         <motion.div
@@ -154,9 +166,9 @@ export default function Hero() {
         >
           <button
             onClick={scrollToContact}
-            className="group relative px-8 py-4 bg-gradient-to-r from-accent-glow to-accent-glow-dark text-[#0a0a0a] font-bold text-lg rounded-xl hover:shadow-2xl hover:shadow-accent-glow/30 transition-all duration-300 hover:scale-105 min-w-[220px]"
+            className="group relative px-8 py-4 bg-gradient-to-r from-accent-glow to-accent-glow-dark text-[#0a0a0a] font-bold text-lg rounded-xl hover:shadow-2xl hover:shadow-accent-glow/30 transition-all duration-300 hover:scale-105 min-w-[260px]"
           >
-            Agendá una consulta
+            QUIERO MEJORAR MI NEGOCIO
             <div className="absolute inset-0 rounded-xl bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </button>
           <a
