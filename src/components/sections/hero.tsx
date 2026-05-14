@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Play } from "lucide-react";
 
 const phrases = [
   "Transformá tu negocio gastronómico",
@@ -10,7 +10,12 @@ const phrases = [
   "Operá con la eficiencia de las grandes marcas",
 ];
 
-function useTypingEffect(phrases: string[], typingSpeed = 60, deletingSpeed = 30, pauseTime = 2000) {
+function useTypingEffect(
+  phrases: string[],
+  typingSpeed = 55,
+  deletingSpeed = 25,
+  pauseTime = 2200
+) {
   const [displayText, setDisplayText] = useState("");
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -44,23 +49,27 @@ function useTypingEffect(phrases: string[], typingSpeed = 60, deletingSpeed = 30
 function Particles() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {Array.from({ length: 30 }).map((_, i) => (
+      {Array.from({ length: 40 }).map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-1 h-1 rounded-full bg-accent-glow/30"
+          className="absolute rounded-full bg-lime/20"
+          style={{
+            width: 1 + Math.random() * 2,
+            height: 1 + Math.random() * 2,
+          }}
           initial={{
             x: `${Math.random() * 100}%`,
             y: `${Math.random() * 100}%`,
             opacity: 0,
           }}
           animate={{
-            y: [`${Math.random() * 100}%`, `${Math.random() * 20}%`],
-            opacity: [0, 0.8, 0],
+            y: [`${Math.random() * 100}%`, `${Math.random() * 10}%`],
+            opacity: [0, 0.7, 0],
           }}
           transition={{
-            duration: 8 + Math.random() * 12,
+            duration: 10 + Math.random() * 15,
             repeat: Infinity,
-            delay: Math.random() * 5,
+            delay: Math.random() * 6,
             ease: "linear",
           }}
         />
@@ -82,16 +91,18 @@ export default function Hero() {
       id="inicio"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Animated gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#0f0f0f] to-[#0a0a0a]" />
+      {/* Deep background layers */}
+      <div className="absolute inset-0 bg-[#050505]" />
 
-      {/* Accent glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-accent-glow/5 rounded-full blur-[120px] animate-gradient" />
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-accent-green/5 rounded-full blur-[100px]" />
+      {/* Radial glow - center */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full bg-lime/[0.04] blur-[150px] animate-gradient" />
 
-      {/* Hero background image overlay */}
+      {/* Radial glow - bottom right */}
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-emerald/[0.03] rounded-full blur-[100px]" />
+
+      {/* Hero image - very subtle */}
       <div
-        className="absolute inset-0 opacity-20"
+        className="absolute inset-0 opacity-[0.12] mix-blend-luminosity"
         style={{
           backgroundImage: "url('/hero-bg.png')",
           backgroundSize: "cover",
@@ -102,86 +113,92 @@ export default function Hero() {
       {/* Particles */}
       <Particles />
 
-      {/* Grid overlay */}
+      {/* Subtle grid */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.02]"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(184,212,55,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(184,212,55,0.3) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
+            "linear-gradient(rgba(184,212,55,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(184,212,55,0.4) 1px, transparent 1px)",
+          backgroundSize: "80px 80px",
         }}
       />
 
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
+        {/* Badge */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-6"
+          initial={{ opacity: 0, y: 25, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="mb-8"
         >
-          <span className="inline-block px-4 py-1.5 text-xs sm:text-sm font-semibold text-accent-glow border border-accent-glow/30 rounded-full bg-accent-glow/5 tracking-wider uppercase">
+          <span className="inline-flex items-center gap-2 px-5 py-2 text-xs sm:text-sm font-semibold text-lime border border-lime/20 rounded-full bg-lime/[0.04] tracking-widest uppercase">
+            <span className="w-1.5 h-1.5 rounded-full bg-lime animate-pulse" />
             Consultor Gastronómico · +25 años de experiencia
           </span>
         </motion.div>
 
+        {/* Main headline */}
         <motion.h1
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 sm:mb-8"
+          transition={{ duration: 1, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] xl:text-7xl font-bold leading-[1.1] mb-6 sm:mb-8 tracking-tight"
         >
           <span className="text-white">{displayText}</span>
           <span className="typing-cursor" />
         </motion.h1>
 
+        {/* Subheadline */}
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-          className="text-lg sm:text-xl md:text-2xl text-white/60 max-w-3xl mx-auto mb-4 leading-relaxed"
+          transition={{ duration: 0.8, delay: 0.35, ease: "easeOut" }}
+          className="text-lg sm:text-xl md:text-2xl text-white/55 max-w-3xl mx-auto mb-3 leading-relaxed"
         >
           Hago que tu restaurante o delivery{" "}
-          <span className="text-accent-glow font-bold">gane más DINERO</span>{" "}
+          <span className="text-shimmer font-bold">gane más DINERO</span>{" "}
           usando los métodos de las grandes marcas.
         </motion.p>
 
         <motion.p
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-          className="text-base sm:text-lg text-white/50 max-w-2xl mx-auto mb-10 sm:mb-12"
+          transition={{ duration: 0.8, delay: 0.45, ease: "easeOut" }}
+          className="text-base sm:text-lg text-white/40 max-w-2xl mx-auto mb-10 sm:mb-14"
         >
-          En <span className="text-white font-semibold">30 días</span> ordeno
-          los números de tu negocio. En{" "}
-          <span className="text-white font-semibold">90 días</span> tu
+          En <span className="text-white/80 font-semibold">30 días</span>{" "}
+          ordeno los números de tu negocio. En{" "}
+          <span className="text-white/80 font-semibold">90 días</span> tu
           restaurante funciona con la máxima eficiencia.
         </motion.p>
 
+        {/* CTAs */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.8, delay: 0.55, ease: "easeOut" }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <button
             onClick={scrollToContact}
-            className="group relative px-8 py-4 bg-gradient-to-r from-accent-glow to-accent-glow-dark text-[#0a0a0a] font-bold text-lg rounded-xl hover:shadow-2xl hover:shadow-accent-glow/30 transition-all duration-300 hover:scale-105 min-w-[260px]"
+            className="group relative px-8 py-4 bg-lime text-[#050505] font-bold text-lg rounded-xl hover:shadow-2xl hover:shadow-lime/20 transition-all duration-500 hover:scale-[1.04] min-w-[280px] overflow-hidden"
           >
-            QUIERO MEJORAR MI NEGOCIO
-            <div className="absolute inset-0 rounded-xl bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <span className="relative z-10">QUIERO MEJORAR MI NEGOCIO</span>
+            <div className="absolute inset-0 bg-lime-light translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
           </button>
           <a
-            href="#servicios"
+            href="#videos"
             onClick={(e) => {
               e.preventDefault();
               document
-                .getElementById("servicios")
+                .getElementById("videos")
                 ?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="px-8 py-4 border border-white/20 text-white font-semibold text-lg rounded-xl hover:border-accent-glow/50 hover:text-accent-glow transition-all duration-300 min-w-[220px]"
+            className="group flex items-center gap-2 px-8 py-4 border border-white/10 text-white/70 font-semibold text-lg rounded-xl hover:border-lime/30 hover:text-lime transition-all duration-300 min-w-[220px] justify-center"
           >
-            Ver servicios
+            <Play className="w-4 h-4 group-hover:scale-110 transition-transform" />
+            Ver cómo trabajo
           </a>
         </motion.div>
       </div>
@@ -190,14 +207,18 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        transition={{ delay: 2 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2"
       >
         <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+          className="flex flex-col items-center gap-2"
         >
-          <ChevronDown className="w-6 h-6 text-accent-glow/50" />
+          <span className="text-white/20 text-[10px] tracking-[0.3em] uppercase">
+            Scroll
+          </span>
+          <ChevronDown className="w-4 h-4 text-lime/40" />
         </motion.div>
       </motion.div>
     </section>
